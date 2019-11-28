@@ -12,3 +12,15 @@ export default class PlayerForm extends Component {
     );
   }
 }
+
+// fetch('http://localhost:3000/players', {method: 'POST',
+//         headers: {
+//             'Accept': 'application/json',
+//             'Content-Type': 'application/json'
+// },
+//         body: JSON.stringify({
+//    username: 'KickSomeASS'
+// })
+// })
+//     .then(res => res.json())
+//     .then(username => console.log(username))
