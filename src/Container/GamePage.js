@@ -5,7 +5,8 @@ const PokeAPI = "http://localhost:3002/pokemon";
 
 export default class GamePage extends React.Component {
   state = {
-    pokemons: []
+    pokemons: [],
+    displayedPokemons: [0, 1, 2, 3, 4]
   };
 
   componentDidMount = () => {
@@ -19,6 +20,9 @@ export default class GamePage extends React.Component {
   };
 
   render() {
-    return <TableComponent pokemons={this.state.pokemons} />;
+    const pokemonsToDisplay = this.state.pokemons.filter((pokemon, index) =>
+      this.state.displayedPokemons.includes(index)
+    );
+    return <TableComponent pokemons={pokemonsToDisplay} />;
   }
 }
