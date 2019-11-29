@@ -1,0 +1,18 @@
+/* .ui.four.doubling.cards {
+  width: 300px;
+  height: 300px;
+} */
+
+/* .ui.card {
+  width: 25%;
+  height: 25%;
+}
+
+img {
+  width: 25%;
+  height: 25%;
+} */
+
+.card {
+  grid-auto-rows: auto;
+}
