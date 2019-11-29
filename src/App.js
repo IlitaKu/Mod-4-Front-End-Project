@@ -1,10 +1,12 @@
 import React, { Component } from "react";
-import PlayerForm from "./StartPage/PlayerForm";
+import StartPage from "./Container/StartPage";
+import GamePage from "./Container/GamePage";
 export default class extends Component {
   render() {
     return (
       <div>
-        <PlayerForm />
+        <StartPage />
+        <GamePage />
       </div>
     );
   }
