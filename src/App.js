@@ -7,7 +7,7 @@ export default class extends Component {
   render() {
     return (
       <div>
-        <h1>This is a test</h1>
+        <GamePage history={this.props.history} />
       </div>
     );
   }
