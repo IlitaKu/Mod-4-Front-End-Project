@@ -1,23 +1,25 @@
 import React from "react";
 import TableComponent from "../Components/TableComponent";
-
+import UserComponent from "../Components/UserComponent";
 const PokeAPI = "http://localhost:3002/pokemon";
 
 export default class GamePage extends React.Component {
   state = {
     pokemons: [],
-    displayedPokemons: [0, 1, 2, 3, 4],
-    shuffledPokemons: []
+    userPokemons: [0, 1, 2],
+    tablePokemons: []
   };
 
-  //   shufflePokemons = pokemon => {
-  //     for (let i = pokemon.length - 1; i > 0; i--) {
-  //       const j = (Math.floor(Math.random() * (i + 1))[
-  //         (pokemon[i], pokemon[j])
-  //       ] = [pokemon[j], pokemon[i]]);
-  //     }
-  //     return pokemon;
-  //   };
+  shuffleArray = array => {
+    let i = array.length - 1;
+    for (; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+    return array;
+  };
 
   componentDidMount = () => {
     fetch(PokeAPI)
@@ -29,13 +31,29 @@ export default class GamePage extends React.Component {
       );
   };
 
+  setTableCards = randomNinePokemons => {
+    this.setState({
+      tablePokemons: [...this.state.tablePokemons, randomNinePokemons]
+    });
+  };
+
   render() {
-    const pokemonsToDisplay = this.state.pokemons.filter((pokemon, index) =>
-      this.state.displayedPokemons.includes(index)
+    const userPokemonsToDisplay = this.state.pokemons.filter((pokemon, index) =>
+      this.state.userPokemons.includes(index)
     );
+
+    const shuffledPokemons = this.shuffleArray(this.state.pokemons);
+    const randomNinePokemons = shuffledPokemons.slice(1, 10);
+    const randomTwoPokemons = shuffledPokemons.slice(11, 13);
+    const combineTwoArrays = [...randomNinePokemons, ...randomTwoPokemons];
+    let getOneMatch = {};
+    getOneMatch =
+      combineTwoArrays[Math.floor(Math.random() * combineTwoArrays.length)];
+    console.log(getOneMatch);
     return (
       <div>
-        <TableComponent pokemons={pokemonsToDisplay} />
+        <TableComponent pokemons={randomNinePokemons} />
+        <UserComponent pokemons={randomTwoPokemons} />
       </div>
     );
   }
