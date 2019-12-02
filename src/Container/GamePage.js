@@ -30,9 +30,13 @@ export default class GamePage extends React.Component {
   };
 
   render() {
-    // const pokemonsToDisplay = this.state.pokemons.filter((pokemon, index) =>
-    //   this.state.displayedPokemons.includes(index)
-    // );
-    return <TableComponent pokemons={this.state.displayedPokemons} />;
+    const pokemonsToDisplay = this.state.pokemons.filter((pokemon, index) =>
+      this.state.displayedPokemons.includes(index)
+    );
+    return (
+      <div>
+        <TableComponent pokemons={pokemonsToDisplay} />
+      </div>
+    );
   }
 }
