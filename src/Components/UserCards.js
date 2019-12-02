@@ -8,7 +8,7 @@ export default class TableCards extends Component {
         <div className="ui grid container">
           <div className="four wide row">
             {this.props.pokemons.map(pokemon => (
-              <Card pokemon={pokemon} />
+              <Card key={pokemon.name} pokemon={pokemon} />
             ))}
           </div>
         </div>
