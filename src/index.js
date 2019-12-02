@@ -4,14 +4,20 @@ import App from "./App";
 import './App.css';
 import GamePage from "./Container/GamePage";
 import StartPage from "./Container/StartPage";
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
+import HighscorePage from "./Container/HighscorePage";
+import NoPageFound from "./Container/NoPageFound";
+import { Route, Link, BrowserRouter as Router, Switch } from 'react-router-dom';
 
 const routing = (
     <Router>
         <div>
-            <Route path="/" component={App} />
-            <Route path="/start" component={StartPage} />
-            <Route path="/game" component={GamePage} />
+            <Switch>
+                <Route exact path="/" component={App} />
+                <Route path="/start" component={StartPage} />
+                <Route path="/game" component={GamePage} />
+                <Route path="/highscore" component={HighscorePage} />
+                <Route component={NoPageFound} />
+            </Switch>
         </div>
     </Router>
 )

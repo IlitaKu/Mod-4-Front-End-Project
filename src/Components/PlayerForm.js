@@ -22,26 +22,29 @@ export default class PlayerForm extends Component {
       body: JSON.stringify({
         username: this.state.playernames
       })
-    });
+    })
+    .then(() => this.props.history.push("/game"));
   };
 
   render() {
     return (
-      <div className="ui form" onSubmit={this.handleSubmit}>
-        <div className="inline field">
-          <form>
-            <label>
-              Player name:
-              <input
-                type="text"
-                name="name"
-                placeholder="PlayerName"
-                value={this.state.playernames}
-                onChange={this.handleChange}
-              />
-            </label>
-            <input type="submit" value="Game Start" />
-          </form>
+      <div className="player-form" >
+        <div className="ui form" >
+          <div className="inline field">
+            <form onSubmit={this.handleSubmit}>
+              <label>
+                Player name:
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="PlayerName"
+                  value={this.state.playernames}
+                  onChange={this.handleChange}
+                />
+              </label>
+              <input type="submit" value="Game Start" />
+            </form>
+          </div>
         </div>
       </div>
     );
