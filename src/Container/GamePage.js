@@ -6,8 +6,8 @@ const PokeAPI = "http://localhost:3002/pokemon";
 export default class GamePage extends React.Component {
   state = {
     pokemons: [],
-    displayedPokemons: [0, 1, 2, 3, 4, 5, 6, 7, 8],
-    shuffledPokemons: []
+    userPokemons: [0, 1, 2],
+    tablePokemons: []
   };
 
   shuffleArray = array => {
@@ -31,21 +31,28 @@ export default class GamePage extends React.Component {
       );
   };
 
+  setTableCards = randomNinePokemons => {
+    this.setState({
+      tablePokemons: [...this.state.tablePokemons, randomNinePokemons]
+    });
+  };
+
   render() {
-    const pokemonsToDisplay = this.state.pokemons.filter((pokemon, index) =>
-      this.state.displayedPokemons.includes(index)
+    const userPokemonsToDisplay = this.state.pokemons.filter((pokemon, index) =>
+      this.state.userPokemons.includes(index)
     );
 
-    // const shuffledPokemons = this.state.pokemons[
-    //   Math.floor(Math.random() * this.state.pokemons.length)
-    // ];
     const shuffledPokemons = this.shuffleArray(this.state.pokemons);
-    let randomEightPokemons = shuffledPokemons.slice(1, 10);
-    let randomThreePokemons = shuffledPokemons.slice(1, 4);
+    const randomNinePokemons = shuffledPokemons.slice(1, 10);
+
+    // const randomThreePokemons =
+    //   randomNinePokemons[
+    //     Math.floor(Math.random() * randomEightPokemons.length)
+    //   ]
     return (
       <div>
-        <TableComponent pokemons={randomEightPokemons} />
-        <UserComponent pokemons={randomThreePokemons} />
+        <TableComponent pokemons={randomNinePokemons} />
+        <UserComponent pokemons={userPokemonsToDisplay} />
       </div>
     );
   }
