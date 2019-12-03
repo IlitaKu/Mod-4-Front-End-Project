@@ -5,7 +5,7 @@ const PokeAPI = "http://localhost:3002/pokemon";
 
 export default class GamePage extends React.Component {
   state = {
-    pokemons: [],
+    pokemons: [], 
     tableCards: [],
     playerCards: [],
   };

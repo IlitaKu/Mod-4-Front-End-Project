@@ -24,6 +24,7 @@ export default class Avatar extends Component {
         <div className="ui card">
           <div className="image">
             <img
+              className="ui avatar image"
               alt="avatar"
               src="https://cdn2.iconfinder.com/data/icons/pokemon-filledoutline/64/pokeball-people-pokemon-nintendo-video-game-gaming-gartoon-ball-512.png"
             />
