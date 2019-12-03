@@ -24,6 +24,7 @@ export default class Avatar extends Component {
         <div className="ui card">
           <div className="image">
             <img
+              className="ui avatar image"
               alt="avatar"
               src="https://samdanversreviews.files.wordpress.com/2014/09/costume-pika.png"
             />
