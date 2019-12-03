@@ -48,7 +48,7 @@ export default class GamePage extends React.Component {
     const combineTwoArrays = [...randomNinePokemons, ...randomTwoPokemons];
     let getOneMatch = {};
     getOneMatch =
-      combineTwoArrays[Math.floor(Math.random() * combineTwoArrays.length)];
+      combineTwoArrays[Math.floor(Math.random(4) * combineTwoArrays.length)];
     console.log(getOneMatch);
     return (
       <div>
