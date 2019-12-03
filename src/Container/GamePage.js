@@ -5,76 +5,29 @@ const PokeAPI = "http://localhost:3002/pokemon";
 
 export default class GamePage extends React.Component {
   state = {
-    shuffledPokemons: [],
-    tablePokemons: [],
-    playerPokemons: [],
-    
+    pokemons: [],
   };
 
   componentDidMount = () => {
     fetch(PokeAPI)
       .then(result => result.json())
       .then(pokeData =>
-        this.shuffleData(pokeData))
+        this.setState({
+          pokemons: pokeData
+        })
+      )
   };
-
-  shuffleData = (pokeData) => {
-    let i = pokeData.length - 1;
-    for (; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      const temp = pokeData[i];
-      pokeData[i] = pokeData[j];
-      pokeData[j] = temp;
-    }
-    this.setState({
-      shuffledPokemons: [...this.state.shuffledPokemons, pokeData]
-    })
-    this.setGameCards()
-  };
-
-
-  setGameCards = () => {
-    const shuffledPoke = this.state.shuffledPokemons;
-    const tableCards = shuffledPoke.slice(1, 10);
-    const playerCards = shuffledPoke.slice(11, 13)
-    this.setState({
-      tablePokemons: [...this.state.tablePokemons, tableCards],
-      playerPokemons: [...this.state.playerPokemons, playerCards]
-    })
-  }
-
-  
-
-  // setPokeState = (shuffleArray) => {
-  //   this.setState({
-  //     pokemons: this.shuffleArray()
-  //   })
-  // }
- 
-  // setTableCards = randomNinePokemons => {
-  //   this.setState({
-  //     tablePokemons: [...this.state.tablePokemons, randomNinePokemons]
-  //   });
-  // };
 
   render() {
-    console.log('shuffled', this.state.shuffledPokemons)
-    // const userPokemonsToDisplay = this.state.shuffledPokemons.filter((pokemon, index) =>
-    //   this.state.userPokemons.includes(index)
-    // );
+    const allShuffledPokemons = this.state.pokemons.sort(() => 0.5 - Math.random())
+    const allCards = allShuffledPokemons.slice(1, 30)
+    const tableCards = allCards.slice(1, 10)
+    const playerCards = allCards.sort(() => 0.5 - Math.random()).slice(1, 4)
 
-    // const shuffledPokemons = this.shuffleArray(this.state.pokemons);
-    // const randomNinePokemons = shuffledPokemons.slice(1, 10);
-    // const randomTwoPokemons = shuffledPokemons.slice(11, 13);
-    // const combineTwoArrays = [...randomNinePokemons, ...randomTwoPokemons];
-    // let getOneMatch = {};
-    // getOneMatch =
-    //   combineTwoArrays[Math.floor(Math.random() * combineTwoArrays.length)];
-    // console.log(getOneMatch);
     return (
       <div>
-        {/* <TableComponent pokemons={randomNinePokemons} />
-        <UserComponent pokemons={randomTwoPokemons} /> */}
+        <TableComponent pokemons={tableCards} />
+        <UserComponent pokemons={playerCards} />
       </div>
     );
   }
