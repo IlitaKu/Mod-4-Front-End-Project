@@ -5,7 +5,7 @@ export default class UserDetails extends Component {
   render() {
     return (
       <div>
-        <Avatar history={this.props.history} />
+        <Avatar history={this.props.history} score={this.props.score} />
         <Score />
       </div>
     );
