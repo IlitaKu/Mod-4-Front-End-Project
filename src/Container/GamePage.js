@@ -5,9 +5,10 @@ const PokeAPI = "http://localhost:3002/pokemon";
 
 export default class GamePage extends React.Component {
   state = {
-    pokemons: [], 
+    allPokemons: [], 
     tableCards: [],
     playerCards: [],
+    playerScore: 0,
   };
 
   componentDidMount = () => {
@@ -20,23 +21,31 @@ export default class GamePage extends React.Component {
         const playerCards = allCards.sort(() => 0.5 - Math.random()).slice(0, 3)
 
         this.setState({
-          pokemons: pokeData,
+          allPokemons: pokeData,
           tableCards,
           playerCards,
         })
       })
   };
 
-  clickHandler = (id) => {
+  clickHandler = (pokemon) => {
     // trying to find out whether card which was clicked on in playerCards has an id which is also in the currently displayed tableCards
-
+    if (this.state.tableCards.includes(pokemon)) {
+      this.setState({ 
+        playerScore: this.state.playerScore + 10
+      })
+    } else {
+      this.setState({
+        playerScore: this.state.playerScore - 10      
+      })
+    }
   }
 
   render() {
     return (
       <div>
         <TableComponent pokemons={this.state.tableCards} />
-        <UserComponent pokemons={this.state.playerCards} clickHandler={this.clickHandler} />
+        <UserComponent pokemons={this.state.playerCards} clickHandler={this.clickHandler} score={this.state.playerScore} />
       </div>
     );
   }
