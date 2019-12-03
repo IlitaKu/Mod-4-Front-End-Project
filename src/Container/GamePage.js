@@ -5,31 +5,38 @@ const PokeAPI = "http://localhost:3002/pokemon";
 
 export default class GamePage extends React.Component {
   state = {
-    pokemons: []
+    pokemons: [], 
+    tableCards: [],
+    playerCards: [],
   };
 
   componentDidMount = () => {
     fetch(PokeAPI)
       .then(result => result.json())
-      .then(pokeData =>
+      .then(pokeData => {
+        const allShuffledPokemons = pokeData.sort(() => 0.5 - Math.random())
+        const allCards = allShuffledPokemons.slice(0, 30)
+        const tableCards = allCards.slice(0, 9)
+        const playerCards = allCards.sort(() => 0.5 - Math.random()).slice(0, 3)
+
         this.setState({
-          pokemons: pokeData
+          pokemons: pokeData,
+          tableCards,
+          playerCards,
         })
-      );
+      })
   };
 
-  render() {
-    const allShuffledPokemons = this.state.pokemons.sort(
-      () => 0.5 - Math.random()
-    );
-    const allCards = allShuffledPokemons.slice(1, 30);
-    const tableCards = allCards.slice(1, 10);
-    const playerCards = allCards.sort(() => 0.5 - Math.random()).slice(1, 4);
+  clickHandler = (id) => {
+    // trying to find out whether card which was clicked on in playerCards has an id which is also in the currently displayed tableCards
 
+  }
+
+  render() {
     return (
       <div>
-        <TableComponent pokemons={tableCards} />
-        <UserComponent pokemons={playerCards} />
+        <TableComponent pokemons={this.state.tableCards} />
+        <UserComponent pokemons={this.state.playerCards} clickHandler={this.clickHandler} />
       </div>
     );
   }
