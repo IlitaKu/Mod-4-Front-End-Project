@@ -25,11 +25,11 @@ export default class Avatar extends Component {
           <div className="image">
             <img
               alt="avatar"
-              src="https://samdanversreviews.files.wordpress.com/2014/09/costume-pika.png"
+              src="https://cdn2.iconfinder.com/data/icons/pokemon-filledoutline/64/pokeball-people-pokemon-nintendo-video-game-gaming-gartoon-ball-512.png"
             />
           </div>
           <div className="avatar">
-            <div class="content">
+            <div className="content">
               <a className="header">{lastName}</a>
             </div>
           </div>
