@@ -6,6 +6,9 @@ export default class UserComponent extends Component {
   render() {
     return (
       <div>
+        <div>
+          Which one of your cards is matching? Click on either of the 3!
+        </div>
         <UserCards
           pokemons={this.props.pokemons}
           clickHandler={this.props.clickHandler}
