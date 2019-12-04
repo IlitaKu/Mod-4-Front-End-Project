@@ -9,7 +9,7 @@ export default class App extends Component {
       <div>
         <StartPage />
         <GamePage history={this.props.history} />
-        <HighscorePage />
+        <HighscorePage history={this.props.history} />
       </div>
     );
   }

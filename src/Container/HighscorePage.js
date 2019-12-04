@@ -1,35 +1,30 @@
 import React, { Component } from "react";
+import ScoreCard from "../Components/ScoreCard";
+import ExitButton from "../Components/ExitButton";
 const GAMES_URL = "http://localhost:3000/games";
 const PLAYERS_URL = "http://localhost:3000/players";
 const HIGHSCORE_URL = "http://localhost:3000/highscore";
 
 export default class HighscorePage extends Component {
-
   state = {
-    data: [],
-  }
+    data: []
+  };
 
   componentDidMount = () => {
     fetch(HIGHSCORE_URL)
-    .then(resp => resp.json())
-    .then(scoreData => {
-      this.setState({
-        data: scoreData
-      })
-    })
-  }
+      .then(resp => resp.json())
+      .then(scoreData => {
+        this.setState({
+          data: scoreData
+        });
+      });
+  };
 
   render() {
     return (
       <div>
-        <h1>Highscore</h1>
-        <div className="score-list">
-          <ol>
-            {
-              this.state.data.map(game => <li key={game.id}>{game.username}: {game.score} points</li>)
-            }
-          </ol>
-        </div>
+        <ExitButton history={this.props.history} />
+        <ScoreCard playersScore={this.state.data} />
       </div>
     );
   }
