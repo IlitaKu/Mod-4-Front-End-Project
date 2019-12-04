@@ -21,7 +21,7 @@ export default class Avatar extends Component {
     const lastName = userName[userName.length - 1];
     return (
       <div className="avatar">
-        <div className="ui card">
+        <div className="ui centered card">
           <div className="image">
             <img
               className="ui avatar image"

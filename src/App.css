@@ -69,3 +69,15 @@ div {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
+.four.wide.row {
+  justify-content: center;
+}
+.ui.centered.card {
+  margin: 70%;
+}
+.img.ui.avatar.image {
+  margin: 50%;
+}
+.a.header {
+  text-align: center;
+}
