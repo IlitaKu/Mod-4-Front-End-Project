@@ -81,3 +81,19 @@ div {
 .a.header {
   text-align: center;
 }
+
+.instructions {
+  margin: auto;
+  width: 30%;
+  height: 30%;
+  border: 2px solid rgb(75, 68, 71);
+  padding: 20px;
+  margin: 0;
+  position: absolute;
+  top: 80%;
+  left: 80%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  overflow: scroll;
+  border-radius: 5px;
+}
