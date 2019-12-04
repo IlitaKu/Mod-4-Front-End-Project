@@ -44,3 +44,28 @@ h1,
 div {
   text-align: center;
 }
+
+.score-form {
+  margin: auto;
+  width: 70%;
+  height: 70%;
+  border: 10px solid rgb(75, 68, 71);
+  padding: 100px;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background-image: url("https://o.aolcdn.com/images/dims?quality=85&image_uri=http%3A%2F%2Fo.aolcdn.com%2Fhss%2Fstorage%2Fmidas%2F6623d5a6ae583f81ee3515b6b3615c7f%2F204855766%2Flandscape-1456483171-pokemon2.jpg&client=amp-blogside-v2&signature=a66341cc83efebc3c63cadf0db972d9a16e1b05d");
+  overflow: scroll;
+}
+
+.score-board {
+  background-color: white;
+  position: relative;
+}
+.ui.positive.button {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}

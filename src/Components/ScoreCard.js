@@ -4,16 +4,14 @@ export default class ScoreCard extends Component {
   render() {
     const { playersScore } = this.props;
     return (
-      <div>
+      <div className="score-form">
         <h1>Highscore</h1>
-        <div>
-          <ol>
-            {playersScore.map(game => (
-              <li key={game.id}>
-                {game.username}: {game.score} points
-              </li>
-            ))}
-          </ol>
+        <div className="score-board">
+          {playersScore.map(game => (
+            <li key={game.id}>
+              {game.username}: {game.score} points
+            </li>
+          ))}
         </div>
       </div>
     );

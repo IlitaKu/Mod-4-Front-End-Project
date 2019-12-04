@@ -5,11 +5,13 @@ export default class ExitButton extends Component {
     const { history } = this.props;
     return (
       <div>
+        <br></br>
+        <br></br>
         <button
           class="positive ui button"
           onClick={() => history.push("/game")}
         >
-          Play Again
+          Play again
         </button>
         <button
           class="negative ui button"
