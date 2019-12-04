@@ -12,12 +12,11 @@ export default class GamePage extends React.Component {
     tableCards: [],
     playerCards: [],
     playerScore: 0,
-    timerOn: true,
     seconds: 1,
     index: 0,
     allCards: [],
     lives: 3,
-    clicked: false,
+    clicked: false
   };
 
   componentDidMount = () => {
@@ -117,8 +116,7 @@ export default class GamePage extends React.Component {
     } else {
       this.clickHandler(pokemon);
     }
-  }
- 
+  };
 
   loseLives = () => {
     if (this.state.scores < 0 && this.state.lives > 0)

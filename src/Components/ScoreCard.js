@@ -6,7 +6,7 @@ export default class ScoreCard extends Component {
     return (
       <div>
         <h1>Highscore</h1>
-        <div className="score-list">
+        <div>
           <ol>
             {playersScore.map(game => (
               <li key={game.id}>

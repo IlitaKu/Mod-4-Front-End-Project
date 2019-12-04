@@ -29,19 +29,19 @@ export default class PlayerForm extends Component {
     return (
       <div className="player-form">
         <div className="ui form">
-          <div className="inline field">
+          <div className="field">
             <form onSubmit={this.handleSubmit}>
-              <label>
-                Player name:
+              <div class="field">
+                <label>Player Name</label>
                 <input
                   type="text"
                   name="name"
-                  placeholder="PlayerName"
+                  placeholder="Playername"
                   value={this.state.playernames}
                   onChange={this.handleChange}
                 />
-              </label>
-              <input type="submit" value="Game Start" />
+              </div>
+              <input type="submit" value="Click here to catch'em all" />
             </form>
           </div>
         </div>
