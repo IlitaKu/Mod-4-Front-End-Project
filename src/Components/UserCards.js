@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Card from "./Card";
+import UserCard from "./UserCard";
 
 export default class UserCards extends Component {
   render() {
@@ -8,7 +8,7 @@ export default class UserCards extends Component {
         <div className="ui grid container">
           <div className="four wide row">
             {this.props.pokemons.map(pokemon => (
-              <Card key={pokemon.name} pokemon={pokemon} clickHandler={this.props.clickHandler} />
+              <UserCard key={pokemon.name} pokemon={pokemon} clickHandler={this.props.clickHandler} clicked={this.props.clicked} />
             ))}
           </div>
         </div>
