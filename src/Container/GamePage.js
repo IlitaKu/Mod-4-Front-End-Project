@@ -13,10 +13,11 @@ export default class GamePage extends React.Component {
     playerCards: [],
     playerScore: 0,
     timerOn: true,
-    seconds: 5,
+    seconds: 1,
     index: 0,
     allCards: [],
-    lives: 3
+    lives: 3,
+    clicked: false,
   };
 
   componentDidMount = () => {
@@ -55,7 +56,8 @@ export default class GamePage extends React.Component {
       if (seconds === 0) {
         if (this.state.index + 9 <= this.state.allCards.length) {
           this.setState({
-            seconds: 5,
+            clicked: false,
+            seconds: 1,
             tableCards: this.state.allCards.slice(
               this.state.index,
               this.state.index + 9
@@ -94,18 +96,29 @@ export default class GamePage extends React.Component {
   clickHandler = pokemon => {
     if (this.state.tableCards.includes(pokemon)) {
       this.setState({
-        playerScore: this.state.playerScore + 10
+        playerScore: this.state.playerScore + 10,
+        clicked: true
       });
     } else {
       this.setState(
         {
           playerScore: this.state.playerScore - 10,
-          lives: this.state.lives - 1
+          lives: this.state.lives - 1,
+          clicked: true
         },
         () => this.loseLives()
       );
     }
   };
+
+  oneClickOnly = pokemon => {
+    if (this.state.clicked) {
+      return;
+    } else {
+      this.clickHandler(pokemon);
+    }
+  }
+ 
 
   loseLives = () => {
     if (this.state.scores < 0 && this.state.lives > 0)
@@ -133,9 +146,10 @@ export default class GamePage extends React.Component {
         />
         <UserComponent
           pokemons={this.state.playerCards}
-          clickHandler={this.clickHandler}
+          clickHandler={this.oneClickOnly}
           score={this.state.playerScore}
           lives={this.state.lives}
+          clicked={this.state.clicked}
         />
       </div>
     );

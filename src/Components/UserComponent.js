@@ -18,6 +18,7 @@ export default class UserComponent extends Component {
           history={this.props.history}
           score={this.props.score}
           lives={this.props.lives}
+          clicked={this.props.clicked}
         />
       </div>
     );
