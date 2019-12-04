@@ -22,14 +22,13 @@ export default class PlayerForm extends Component {
       body: JSON.stringify({
         username: this.state.playernames
       })
-    })
-    .then(() => this.props.history.push("/game"));
+    }).then(() => this.props.history.push("/game"));
   };
 
   render() {
     return (
-      <div className="player-form" >
-        <div className="ui form" >
+      <div className="player-form">
+        <div className="ui form">
           <div className="inline field">
             <form onSubmit={this.handleSubmit}>
               <label>

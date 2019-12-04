@@ -7,6 +7,7 @@ export default class UserDetails extends Component {
       <div>
         <Avatar history={this.props.history} />
         <Score score={this.props.score} />
+        <h3>Lives left: {this.props.lives}</h3>
       </div>
     );
   }

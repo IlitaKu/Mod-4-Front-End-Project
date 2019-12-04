@@ -15,7 +15,8 @@ export default class GamePage extends React.Component {
     timerOn: true,
     seconds: 5,
     index: 0,
-    allCards: []
+    allCards: [],
+    lives: 3
   };
 
   componentDidMount = () => {
@@ -66,6 +67,7 @@ export default class GamePage extends React.Component {
         }
       }
     }, 1000);
+    if (this.state.lives === 0) return;
   };
 
   getAllPlayers = () => {
@@ -91,19 +93,33 @@ export default class GamePage extends React.Component {
 
   clickHandler = pokemon => {
     if (this.state.tableCards.includes(pokemon)) {
-      this.setState(
-        {
-          playerScore: this.state.playerScore + 10
-        },
-        () => this.sendScoreToBackend()
-      );
+      this.setState({
+        playerScore: this.state.playerScore + 10
+      });
     } else {
       this.setState(
         {
-          playerScore: this.state.playerScore - 10
+          playerScore: this.state.playerScore - 10,
+          lives: this.state.lives - 1
         },
-        () => this.sendScoreToBackend()
+        () => this.loseLives()
       );
+    }
+  };
+
+  loseLives = () => {
+    if (this.state.scores < 0 && this.state.lives > 0)
+      this.setState({
+        lives: 0
+      });
+    if (this.state.lives < 0)
+      this.setState({
+        lives: 0
+      });
+    if (this.state.lives === 0) {
+      //do not let it be less than 0
+      this.sendScoreToBackend();
+      setTimeout(() => this.props.history.push("/highscore"), 1000);
     }
   };
 
@@ -119,6 +135,7 @@ export default class GamePage extends React.Component {
           pokemons={this.state.playerCards}
           clickHandler={this.clickHandler}
           score={this.state.playerScore}
+          lives={this.state.lives}
         />
       </div>
     );
