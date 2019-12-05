@@ -16,6 +16,7 @@ export default class Avatar extends Component {
   };
 
   render() {
+    const { score, lives } = this.props;
     const arrayOfNames = this.state.playerNames;
     const userName = arrayOfNames.map(user => user.username);
     const lastName = userName[userName.length - 1];
@@ -31,7 +32,12 @@ export default class Avatar extends Component {
           </div>
           <div className="avatar">
             <div className="content">
-              <a className="header">{lastName}</a>
+              <a className="Name-header">{lastName}</a>
+              <br></br>
+              <a className="Score-header">Score:{score}</a>
+              <br></br>
+              <a className="lives-header">Lives:{lives}</a>
+              <br></br>
             </div>
           </div>
         </div>

@@ -27,12 +27,6 @@
   margin-bottom: 0.5rem;
 }
 
-.avatar {
-  width: 15%;
-  height: 15%;
-  position: center;
-}
-
 .score-list {
   position: center;
 }
@@ -72,11 +66,11 @@ div {
 .four.wide.row {
   justify-content: center;
 }
-.ui.centered.card {
-  margin: 70%;
-}
-.img.ui.avatar.image {
-  margin: 50%;
+
+.ui.avatar.image {
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
 }
 .a.header {
   text-align: center;
@@ -96,4 +90,42 @@ div {
   transform: translate(-50%, -50%);
   overflow: scroll;
   border-radius: 5px;
+}
+.ui.centered.card {
+  margin: auto;
+  position: center;
+  margin: auto;
+  width: 70%;
+  height: 70%;
+  border: 2px solid rgb(75, 68, 71);
+  padding: 20p;
+  text-align: center;
+}
+.avatar {
+  width: 30%;
+  height: 50%;
+  position: center;
+  left: 50;
+}
+.ui.card > .image {
+  position: center;
+}
+a.Name-header {
+  color: black;
+  font-size: 1.5em;
+  margin: auto;
+  left: 50%;
+}
+
+a.Score-header {
+  color: green;
+  font-size: 1.5em;
+  width: 50%;
+}
+a.lives-header {
+  color: red;
+  font-size: 1.5em;
+}
+div.content {
+  size: 12rem;
 }
