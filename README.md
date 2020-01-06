@@ -11,4 +11,4 @@ https://youtu.be/koPto5RIpDQ
 # How to use
 
 User should clone the repo or fork the project-mod4-backed and front-end-react. For the backend run the command rails server in terminal for the front end run npm install and then npm start. Also on 3rd server run json-server --watch db.json --port 3002 to get the Pokemon data.
-Link to backen repo: https://github.com/thetamicodes/final-project-mod4-backend-PokeAct
+Link to backend repo: https://github.com/thetamicodes/final-project-mod4-backend-PokeAct
